@@ -1,1 +1,15 @@
 Put your Project 5 brief explanation, as directed, here.
+I am accessing the Tumblr API to gather the following data:
+    - /following = The total number of blogs that I am following (n=12)
+    - /tags = Up to 20 blogs related to a specific search term ("social justice")
+
+Since Tumblr uses Oauth1, I have adapted the twitter code used in class to cache, time-limit, and store credentials related to accessing the Tumblr API.
+
+For each blog, I will parse through JSON to access the blog name, title, description, URL, and associated tags, where available
+
+I will write 2 CSV files, one for the blogs I'm following ("tumblr_blogs_followed.csv") and another for blogs related to a specific search term ("social_justice_blogs.csv"). Data in each CSV file:
+  - "tumblr_blogs_followed.csv": 4 columns - blog name,title, description, URL
+  - "social_justice_blogs.csv": 4 columns - blog name, type, URL, ID, related tags
+
+Tumblr API URL: https://www.tumblr.com/docs/en/api/v2
+Tumblr Oauth process URL: http://requests-oauthlib.readthedocs.io/en/latest/examples/tumblr.html

@@ -4,6 +4,7 @@ import webbrowser
 import json
 import secret_tumblr_data # need properly formatted file, see example
 from datetime import datetime
+import csv
 
 ## ADDITIONAL CODE for program should go here...
 ## Perhaps authentication setup, functions to get and process data, a class definition... etc.
@@ -279,8 +280,14 @@ tag_objects = [TumblrTag(t) for t in tumblr_tags]
 # print(tag_objects)
 # print(tag_objects[0].type,tag_objects[0].blog_name,tag_objects[0].url,tag_objects[0].id,tag_objects[0].related_tags)
 
-with open("tumblr_tags.csv", 'w', newline='') as f:
+with open("social_justice_blogs.csv", 'w', newline='') as f:
     writer = csv.writer(f)
-    writer.writerow(['Type','Blog Name','URL','Blog ID','Related Tags'])
-    for obj in list_name:
-        writer.writerow([obj.name, obj.location, obj.type, obj.get_mailing_address(), obj.description])
+    writer.writerow(['Blog Name','Type','URL','Blog ID','Related Tags'])
+    for t in tag_objects:
+        writer.writerow([t.blog_name,t.type,t.url,t.id,t.related_tags])
+
+with open("tumblr_blogs_followed.csv", 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['Blog Name','Title','Description','URL'])
+    for b in blog_objects:
+        writer.writerow([b.name,b.title,b.description,b.url])
