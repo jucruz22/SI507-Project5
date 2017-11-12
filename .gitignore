@@ -1,1 +1,4 @@
 proj-5-venv/
+.DS_Store
+creds.json
+secret_tumblr_data.py
